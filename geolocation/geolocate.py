@@ -13,10 +13,11 @@ def pixel_to_latlon(
     cx, cy = img_w / 2, img_h / 2
 
     ray_cam = np.array([
-        (bbox_cx - cx) / fx,
-        (bbox_cy - cy) / fy,
-        1.0
+        (bbox_cx-cx)/ fx,
+        (bbox_cy-cy) / fy,
+        -1.0
     ])
+
     ray_cam /= np.linalg.norm(ray_cam)
 
     R = rotation_matrix(roll, pitch, yaw)
